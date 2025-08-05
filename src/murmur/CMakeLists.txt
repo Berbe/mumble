@@ -238,7 +238,7 @@ if(ice)
 	add_dependencies(mumble-server generate_murmur_ice_wrapper)
 	add_custom_command(
 		OUTPUT "MumbleServerIceWrapper.cpp"
-		COMMAND ${PYTHON_INTERPRETER}
+		COMMAND Python::Interpreter
 		ARGS "${CMAKE_SOURCE_DIR}/scripts/generateIceWrapper.py" -i "${ICE_FILE}"
 			-g "${ICE_FILE_NAME}.h" -o "MumbleServerIceWrapper.cpp" -q
 		DEPENDS ${ICE_GENERATED_FILES}

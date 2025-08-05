@@ -7,9 +7,6 @@
 [submodule "3rdparty/speexdsp"]
 	path = 3rdparty/speexdsp
 	url = https://github.com/xiph/speexdsp.git
-[submodule "3rdparty/FindPythonInterpreter"]
-	path = 3rdparty/FindPythonInterpreter
-	url = https://github.com/Krzmbrzl/FindPythonInterpreter.git
 [submodule "3rdparty/tracy"]
 	path = 3rdparty/tracy
 	url = https://github.com/wolfpld/tracy.git
