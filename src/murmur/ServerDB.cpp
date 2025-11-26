@@ -125,9 +125,13 @@ ServerDB::ServerDB() {
 			QStringList datapaths;
 
 			datapaths << Meta::mp.qdBasePath.absolutePath();
+			qInfo("Trying database path: %s", qPrintable(Meta::mp.qdBasePath.absolutePath()));
 			datapaths << QDir::currentPath();
+			qInfo("Trying database path: %s", qPrintable(QDir::currentPath()));
 			datapaths << QCoreApplication::instance()->applicationDirPath();
+			qInfo("Trying database path: %s", qPrintable(QCoreApplication::instance()->applicationDirPath()));
 			datapaths << QDir::homePath();
+			qInfo("Trying database path: %s", qPrintable(QDir::homePath()));
 
 			// We use a lambda, so we can easily "break out" of all levels of nested loops using return
 			[&]() {
