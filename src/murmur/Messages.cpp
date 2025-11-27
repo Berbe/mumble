@@ -1931,6 +1931,10 @@ void Server::msgACL(ServerUser *uSource, MumbleProto::ACL &msg) {
 
 		clearACLCache();
 
+		if (Meta::mp.bLogACLChanges) {
+			logACLs(this, c, QLatin1String("These are the ACLs before permission section:"));
+		}
+
 		if (!hasPermission(uSource, c, ChanACL::Write) && ((uSource->iId >= 0) || !uSource->qsHash.isEmpty())) {
 			{
 				QWriteLocker wl(&qrwlVoiceThread);
@@ -1950,6 +1954,10 @@ void Server::msgACL(ServerUser *uSource, MumbleProto::ACL &msg) {
 			clearACLCache();
 		}
 
+
+		if (Meta::mp.bLogACLChanges) {
+			logACLs(this, c, QLatin1String("These are the ACLs before update:"));
+		}
 
 		updateChannel(c);
 		log(uSource, QString("Updated ACL in channel %1").arg(*c));
